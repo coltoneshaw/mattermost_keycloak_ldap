@@ -1,0 +1,63 @@
+{
+    "ServiceSettings": {
+        "SiteURL": "http://127.0.0.1:8065",
+        "LicenseFileLocation": "/opt/mattermost/config/license.txt",
+        "AllowedUntrustedInternalConnections": "127.0.0.1, localhost"
+    },
+    "TeamSettings": {
+        "SiteName": "Mattermost"
+    },
+    "SqlSettings": {
+        "DriverName": "mysql",
+        "DataSource": "mmuser:MATTERMOST_PASSWORD@tcp(127.0.0.1:3306)/mattermost?charset=utf8mb4,utf8\u0026readTimeout=30s\u0026writeTimeout=30s"
+    },
+    "PasswordSettings": {
+        "MinimumLength": 5,
+        "Lowercase": false,
+        "Number": false,
+        "Uppercase": false,
+        "Symbol": false
+    },
+    "LogSettings": {
+        "EnableConsole": true,
+        "ConsoleLevel": "DEBUG",
+        "ConsoleJson": false,
+        "EnableFile": true,
+        "FileLevel": "DEBUG",
+        "FileJson": false
+    },
+    "LdapSettings": {
+        "Enable": true,
+        "EnableSync": true,
+        "LdapServer": "127.0.0.1",
+        "LdapPort": 389,
+        "ConnectionSecurity": "",
+        "BaseDN": "ou=people,dc=planetexpress,dc=com",
+        "BindUsername": "cn=admin,dc=planetexpress,dc=com",
+        "BindPassword": "GoodNewsEveryone",
+        "UserFilter": "(objectClass=inetOrgPerson)",
+        "GroupFilter": "(objectClass=Group)",
+        "GuestFilter": "",
+        "EnableAdminFilter": true,
+        "AdminFilter": "(\u0026(objectClass=inetOrgPerson)(memberof=cn=admin_staff,ou=people,dc=planetexpress,dc=com))",
+        "GroupDisplayNameAttribute": "cn",
+        "GroupIdAttribute": "cn",
+        "FirstNameAttribute": "cn",
+        "LastNameAttribute": "sn",
+        "EmailAttribute": "mail",
+        "UsernameAttribute": "employeeType",
+        "NicknameAttribute": "givenName",
+        "IdAttribute": "uid",
+        "PositionAttribute": "ou",
+        "LoginIdAttribute": "uid",
+        "SyncIntervalMinutes": 60,
+        "SkipCertificateVerification": false,
+        "QueryTimeout": 60,
+        "MaxPageSize": 2000,
+        "LoginFieldName": "Planet Express Username",
+        "LoginButtonColor": "",
+        "LoginButtonBorderColor": "",
+        "LoginButtonTextColor": "",
+        "Trace": true
+    }
+}
