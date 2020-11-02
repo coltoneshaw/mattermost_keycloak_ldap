@@ -5,13 +5,18 @@ root_password=$2
 mysql_password=$3
 
 apt-get -qq -y update
-apt-get install -y -q mariadb-client ldapscripts jq
+apt-get install -y -q mariadb-client ldapscripts jq haproxy xmlsec1
 
-cat /vagrant/db_setup.sql | sed "s/MATTERMOST_PASSWORD/$mysql_password/" > /tmp/db_setup.sql
-mysql -h127.0.0.1 -uroot -p$root_password < /tmp/db_setup.sql
-rm /tmp/db_setup.sql
+# Install haproxy
+mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.orig.cfg
+cp /vagrant/haproxy.cfg /etc/haproxy/haproxy.cfg
+service haproxy restart
 
 rm -rf /opt/mattermost
+
+echo "127.0.0.1 mattermost.planex.com" >> /etc/hosts
+echo "127.0.0.1 saml.planex.com" >> /etc/hosts
+echo "127.0.0.1 ldap.planex.com" >> /etc/hosts
 
 archive_filename="mattermost-$mattermost_version-linux-amd64.tar.gz"
 archive_path="/vagrant/mattermost_archives/$archive_filename"

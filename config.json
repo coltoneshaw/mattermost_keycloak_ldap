@@ -1,6 +1,6 @@
 {
     "ServiceSettings": {
-        "SiteURL": "http://127.0.0.1:8065",
+        "SiteURL": "http://mattermost.planex.com/",
         "LicenseFileLocation": "/opt/mattermost/config/license.txt",
         "AllowedUntrustedInternalConnections": "127.0.0.1, localhost"
     },
@@ -45,7 +45,7 @@
         "FirstNameAttribute": "cn",
         "LastNameAttribute": "sn",
         "EmailAttribute": "mail",
-        "UsernameAttribute": "employeeType",
+        "UsernameAttribute": "uid",
         "NicknameAttribute": "givenName",
         "IdAttribute": "uid",
         "PositionAttribute": "ou",
@@ -59,5 +59,40 @@
         "LoginButtonBorderColor": "",
         "LoginButtonTextColor": "",
         "Trace": true
+    },
+    "SamlSettings": {
+        "Enable": true,
+        "EnableSyncWithLdap": false,
+        "EnableSyncWithLdapIncludeAuth": false,
+        "Verify": false,
+        "Encrypt": false,
+        "SignRequest": false,
+        "IdpUrl": "http://saml.planex.com/auth/realms/planex/protocol/saml",
+        "IdpDescriptorUrl": "http://saml.planex.com/auth/realms/planex",
+        "IdpMetadataUrl": "",
+        "ServiceProviderIdentifier": "mattermost",
+        "AssertionConsumerServiceURL": "http://mattermost.planex.com/login/sso/saml",
+        "SignatureAlgorithm": "RSAwithSHA1",
+        "CanonicalAlgorithm": "Canonical1.0",
+        "ScopingIDPProviderId": "",
+        "ScopingIDPName": "",
+        "IdpCertificateFile": "saml-idp.crt",
+        "PublicCertificateFile": "",
+        "PrivateKeyFile": "",
+        "IdAttribute": "",
+        "GuestAttribute": "",
+        "EnableAdminAttribute": false,
+        "AdminAttribute": "",
+        "FirstNameAttribute": "givenName",
+        "LastNameAttribute": "surname",
+        "EmailAttribute": "email",
+        "UsernameAttribute": "username",
+        "NicknameAttribute": "",
+        "LocaleAttribute": "",
+        "PositionAttribute": "",
+        "LoginButtonText": "SAML",
+        "LoginButtonColor": "#34a28b",
+        "LoginButtonBorderColor": "#2389D7",
+        "LoginButtonTextColor": "#ffffff"
     }
 }
