@@ -1,6 +1,6 @@
 {
     "ServiceSettings": {
-        "SiteURL": "http://mattermost.planex.com/",
+        "SiteURL": "http://127.0.0.1:8065",
         "LicenseFileLocation": "/opt/mattermost/config/license.txt",
         "AllowedUntrustedInternalConnections": "127.0.0.1, localhost"
     },
@@ -8,8 +8,8 @@
         "SiteName": "Mattermost"
     },
     "SqlSettings": {
-        "DriverName": "mysql",
-        "DataSource": "mmuser:MATTERMOST_PASSWORD@tcp(127.0.0.1:3306)/mattermost?charset=utf8mb4,utf8\u0026readTimeout=30s\u0026writeTimeout=30s"
+        "DriverName": "postgres",
+        "DataSource": "postgres://mmuser:MATTERMOST_PASSWORD@127.0.0.1:5432/mattermost?sslmode=disable&connect_timeout=10"
     },
     "PasswordSettings": {
         "MinimumLength": 5,
@@ -30,7 +30,7 @@
         "Enable": true,
         "EnableSync": true,
         "LdapServer": "127.0.0.1",
-        "LdapPort": 389,
+        "LdapPort": 10389,
         "ConnectionSecurity": "",
         "BaseDN": "ou=people,dc=planetexpress,dc=com",
         "BindUsername": "cn=admin,dc=planetexpress,dc=com",
@@ -67,16 +67,16 @@
         "Verify": false,
         "Encrypt": false,
         "SignRequest": false,
-        "IdpUrl": "http://saml.planex.com/auth/realms/planex/protocol/saml",
-        "IdpDescriptorUrl": "http://saml.planex.com/auth/realms/planex",
+        "IdpUrl": "http://127.0.0.1:8080/auth/realms/planex/protocol/saml",
+        "IdpDescriptorUrl": "http://127.0.0.1:8080/auth/realms/planex",
         "IdpMetadataUrl": "",
         "ServiceProviderIdentifier": "mattermost",
-        "AssertionConsumerServiceURL": "http://mattermost.planex.com/login/sso/saml",
+        "AssertionConsumerServiceURL": "http://127.0.0.1:8065/login/sso/saml",
         "SignatureAlgorithm": "RSAwithSHA1",
         "CanonicalAlgorithm": "Canonical1.0",
         "ScopingIDPProviderId": "",
         "ScopingIDPName": "",
-        "IdpCertificateFile": "saml-idp.crt",
+        "IdpCertificateFile": "samlcert.crt",
         "PublicCertificateFile": "",
         "PrivateKeyFile": "",
         "IdAttribute": "",

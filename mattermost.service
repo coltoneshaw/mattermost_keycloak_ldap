@@ -2,9 +2,10 @@
 Description=Mattermost
 After=network.target
 
+
 [Service]
 Type=notify
-ExecStart=/opt/mattermost/bin/mattermost server
+ExecStart=/opt/mattermost/bin/mattermost
 TimeoutStartSec=3600
 Restart=always
 RestartSec=10

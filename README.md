@@ -35,6 +35,28 @@ You can also log in with LDAP using any of the users from [here](https://github.
 
  They're also available for LDAP group sync
 
+## Setup steps
+
+1. Modify the variables at the top of the Vagrant file. Specifically the Mattermost Version.
+2. Add a file labled `e20license.txt` to the root directory of this install before running `vagrant up`.
+3. Create the folder `/mattermost_archives` if this does not already exist in the root.
+4. Run `vagrant up`.
+
+## Setup SAML
+
+- If SAML login is not working try to remove the cert under System Console > SAML and re-add it - filename: `samlcert.crt`.
+
+### Create new SAML Users:
+1. Log into Keycloak at `https://127.0.0.1:8080`
+2. Manage > Users > Add new User
+3. fill out the information. Ideally match this to someone from LDAP. This requires an email
+4. Save the user.
+5. Under users again find the user > Credentials and add a password.
+6. Uncheck 'temp password'
+7. Save.
+
+You should now be able to log in with this user via SAML.
+
 ## To Do
 
  - [ ] Get phpLDAPAdmin working
